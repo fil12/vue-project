@@ -22,17 +22,14 @@ const routes = [
         name: 'anime',
         components: {
             default: Anime,
-            addNav: import('@/views/Nav.vue')
-        }
+        },
+        children: [{
+            path: '/anime-genre/:id',
+            name: 'anime-genre',
+            component: () => import('../views/Genre.vue')
+        }],
     },
-    {
-        path: '/anime-genre/:id',
-        name: 'anime-genre',
-        components: {
-            default: Genre,
-            addNav: import('@/views/Nav.vue')
-        }
-    },
+
     {
         path: '/:title/:id',
         name: 'item',

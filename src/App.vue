@@ -5,9 +5,8 @@
                 <router-link to="/anime">Anime</router-link>                |
                 <router-link to="/manga">Manga</router-link>
             </div>
-            <div class="row">
-                <router-view/>
-            </div>
+            <router-view/>
+
         </div>
     </div>
 </template>
