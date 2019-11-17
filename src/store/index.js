@@ -1,16 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import NewsApi from "../services/api/news-api";
-import axios from "axios";
 import newsStore from './newsStore'
 import topStore from './topStore'
 import listStore from './listStore'
+import genre from "./genre";
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     modules: {
         newsStore,
         topStore,
-        listStore
+        listStore,
+        genre
     }
 })
