@@ -10,8 +10,8 @@
                 {{genre}}
                 </router-link>
             </div>
+            <router-view/>
         </div>
-    <router-view/>
 </template>
 
 <script>
