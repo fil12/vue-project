@@ -31,7 +31,7 @@ const routes = [
     },
 
     {
-        path: '/:title/:id',
+        path: 'item/:id',
         name: 'item',
         component() {
             return import('@/views/Item.vue')
@@ -43,7 +43,12 @@ const routes = [
         components: {
             default: Manga,
             addNav: import('@/views/Nav.vue')
-        }
+        },
+        children: [{
+            path: '/manga-genre/:id',
+            name: 'manga-genre',
+            component: () => import('../views/Genre.vue')
+        }],
     }
 ]
 

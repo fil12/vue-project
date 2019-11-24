@@ -2,6 +2,8 @@
     <div id="app">
         <div id="nav">
             <div class="container">
+
+                <router-link to="/">Home</router-link>                |
                 <router-link to="/anime">Anime</router-link>                |
                 <router-link to="/manga">Manga</router-link>
             </div>

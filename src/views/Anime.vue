@@ -1,36 +1,69 @@
 <template>
+    <div class="genres">
+        <h2>Anime</h2>
         <div class="row">
-            <div class="col-2" v-for="(id, genre) in animeGenres" :key="'genre_'+id">
-                <router-link :to="{
+            <div class="col-4" v-for="(id, genre) in animeGenres" :key="'genre_'+id">
+                <div class="genre">
+                    <div @click="getGenreItem(id)">
+                        <router-link :to="{
                             name: 'anime-genre',
                             params: {
-                                id: id
+                                id: id,
                             }
                         }">
-                {{genre}}
-                </router-link>
+                            {{genre}}
+                        </router-link>
+                    </div>
+                </div>
             </div>
-            <router-view/>
+            <div class="col-4 genre-card" v-for="(anime, i) in getTenItems(animeGenreItem)" :key="'anime_'+i">
+                <genre-card :item="anime"/>
+            </div>
         </div>
+        <div class="row">
+
+        </div>
+    </div>
 </template>
 
 <script>
-    import AnimeList from "../components/anime/AnimeList";
     import animeGenres from "../data/animeGenres";
+    import GenreCard from "../components/genre/GenreCard";
+    import NewsMixin from "../mixins/news-mixin"
+    import {mapGetters} from 'vuex'
+
     export default {
         name: "Anime",
         components: {
-            AnimeList
+            GenreCard
         },
+        mixins: [
+            NewsMixin
+        ],
         data() {
             return {
-                animeGenres
+                animeGenres,
+            }
+        },
+        computed: {
+            ...mapGetters('genre', {
+                animeGenreItem: 'animeGenreItem'
+            }),
+        },
+        methods: {
+            getGenreItem(id) {
+                this.$store.dispatch('genre/getAnimeGenreItem', id);
             }
         }
-
     }
 </script>
 
-<style scoped>
-
+<style lang="css">
+    .genre{
+        margin: 2em;
+        border: 1px solid #000;
+    }
+    .genre-card{
+        text-align: center;
+    }
 </style>

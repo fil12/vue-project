@@ -1,24 +1,21 @@
 <template>
 
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{item.title}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <router-link :to="{
-                    name: 'item',
-                    params: {
-                        title: item.title.replace(' ', '_'),
-                        id: item.mal_id
-                    }
-                    }"
-                                 class="card-link">
-                        {{item.title}}
-                    </router-link>
-                    <a href="#" >Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <img :src="item.image_url" alt="">
+            <h5 class="card-title">{{item.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Score: {{item.score}}</h6>
+            <p class="card-text">{{item.synopsis.substr(0, 50)}}...</p>
+            <router-link  class="card-link alert-link" :to="{
+                name: 'item',
+                params: {
+                    id: item.mal_id
+                }
+            }">
+                View
+            </router-link>
+        </div>
+    </div>
 
 </template>
 
@@ -29,11 +26,13 @@
             item: {
                 type: Object,
                 required: true
-            }
+            },
         }
     }
 </script>
 
-<style scoped>
-
+<style lang="css">
+    .card {
+        margin: 2em;
+    }
 </style>

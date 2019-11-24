@@ -11,8 +11,8 @@ export default {
             state.animeGenreItem = data
         },
 
-        setMangeGenreItem(state, data) {
-            state.mangaGenreItemt = data
+        setMangaGenreItem(state, data) {
+            state.mangaGenreItem = data
         },
     },
     getters: {
@@ -20,7 +20,7 @@ export default {
             return state.animeGenreItem;
         },
         mangaGenreItem: (state) => {
-            return state.mangaGenreItemt;
+            return state.mangaGenreItem;
         },
     },
     actions: {
@@ -31,11 +31,11 @@ export default {
                     commit('setAnimeGenreItem', resp);
                 })
         },
-        getMangaGenreItem({commit}) {
+        getMangaGenreItem({commit}, id) {
             axios.get("https://api.jikan.moe/v3/genre/manga/"+id+"/1")
                 .then(function (response) {
-                    let resp = response.data.anime;
-                    commit('setMangeGenreItem', resp);
+                    let resp = response.data.manga;
+                    commit('setMangaGenreItem', resp);
                 })
         }
     },

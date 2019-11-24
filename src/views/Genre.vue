@@ -26,11 +26,7 @@
         created() {
             this.$store.dispatch('genre/getAnimeGenreItem', this.genreId)
         },
-        computed: {
-            ...mapGetters('genre', {
-                animeGenreItem: 'animeGenreItem'
-            }),
-        }
+
     }
 </script>
 

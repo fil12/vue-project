@@ -8,5 +8,4 @@ export default {
     Mystery: 7,
     Drama: 8,
     Ecchi: 9,
-    Fantasy: 10,
 }
