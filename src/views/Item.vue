@@ -6,34 +6,35 @@
             </div>
             <div class="col-6">
                 <h2>{{item.title}}</h2>
-                <ul>
-                    <li class="authors">
+                <ul class="text-left">
+                    <li class="authors"> Authors:
                         <ul v-for="(author, i) in item.authors" :key="'author_'+i">
                             <li> {{author.name}}</li>
                         </ul>
                     </li>
-                    <li class="genres">
+                    <li class="genres"> Genres:
                         <ul v-for="(genre, i) in item.genres" :key="'genre_'+i">
                             <li> {{genre.name}}</li>
                         </ul>
                     </li>
                     <li class="members">
-                        {{item.members}}
+                        members: {{item.members}}
                     </li>
                     <li class="publishing_start">
-                        {{item.publishing_start}}
+                        publishing start: {{item.publishing_start}}
                     </li>
                     <li class="score">
-                        {{item.score}}
+                        score: {{item.score}}
                     </li>
                     <li class="type">
-                        {{item.type}}
+                        type: {{item.type}}
                     </li>
                     <li class="volumes">
-                        {{item.volumes}}
+                        volumes: {{item.volumes}}
                     </li>
                 </ul>
-                <div class="synopsis">
+                <div class="synopsis text-left">
+                    <h5>Synopsis:</h5>
                     {{item.synopsis}}
                 </div>
             </div>
@@ -45,17 +46,12 @@
 <script>
     export default {
         name: "Item",
-        data() {
-            return {
-                item: {
-
-                }
+        computed: {
+            item() {
+                return this.$route.params.item;
             }
+
         },
-        mounted() {
-
-        }
-
     }
 </script>
 

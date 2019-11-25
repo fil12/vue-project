@@ -17,8 +17,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 genre-card" v-for="(manga, i) in getTenItems(mangaGenreItem)" :key="'manga_'+i">
-                <genre-card :item="manga" />
+            <div class="col-4 " v-for="(manga, i) in getTenItems(mangaGenreItem)" :key="'manga_'+i">
+                <transition name="genre-card" class="genre-card">
+                    <genre-card class="genre-card" :item="manga"  v-if="isLoaded"/>
+                </transition>
             </div>
         </div>
         <div class="row">
@@ -48,11 +50,13 @@
         },
         computed: {
             ...mapGetters('genre', {
-                mangaGenreItem: 'mangaGenreItem'
+                mangaGenreItem: 'mangaGenreItem',
+                isLoaded: 'isLoaded'
             }),
         },
         methods: {
             getGenreItem(id) {
+                this.$store.dispatch('genre/isLoadedToFalse');
                 this.$store.dispatch('genre/getMangaGenreItem', id);
             }
         }
@@ -66,5 +70,15 @@
     }
     .genre-card{
         text-align: center;
+    }
+    .genre-card-enter-active {
+        transition: all 1s ease;
+    }
+    .genre-card-leave-active {
+        transition: all 1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+    .genre-card-enter, .genre-card-leave-to {
+        transform: translateX(10px);
+        opacity: 0;
     }
 </style>

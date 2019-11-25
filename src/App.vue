@@ -5,7 +5,8 @@
 
                 <router-link to="/">Home</router-link>                |
                 <router-link to="/anime">Anime</router-link>                |
-                <router-link to="/manga">Manga</router-link>
+                <router-link  to="/manga">Manga</router-link>                |
+                <router-link to="/search">Search</router-link>
             </div>
             <router-view/>
 
