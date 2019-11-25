@@ -9,7 +9,8 @@
             <router-link  class="card-link alert-link" :to="{
                 name: 'item',
                 params: {
-                    id: item.mal_id
+                    id: item.mal_id,
+                    item: item
                 }
             }">
                 View

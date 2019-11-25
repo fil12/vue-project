@@ -1,11 +1,11 @@
 <template>
     <div class="genres">
-        <div class="row">
-                <div class="col-6" v-for="(anime, i) in animeGenreItem" :key="'anime_'+i">
-                    <genre-card :item="anime"/>
-                </div>
+<!--        <div class="row">-->
+<!--                <div class="col-6" v-for="(anime, i) in animeGenreItem" :key="'anime_'+i">-->
+<!--                    <genre-card :item="anime"/>-->
+<!--                </div>-->
 
-        </div>
+<!--        </div>-->
     </div>
 </template>
 
