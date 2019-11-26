@@ -1,6 +1,11 @@
 <template>
     <div class="genres">
-        <h2>Manga</h2>
+        <div class="row" v-if="mangaGenreInfo">
+            <div class="ganre-info col-6 offset-3">
+                <h2 class="type">{{mangaGenreInfo.type}}</h2>
+                <p class="genre-name">{{mangaGenreInfo.name}}</p>
+            </div>
+        </div>
         <div class="row">
             <div class="col-4" v-for="(id, genre) in mangaGenres" :key="'genre_'+id">
                 <div class="genre">
@@ -17,22 +22,20 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 " v-for="(manga, i) in getTenItems(mangaGenreItem)" :key="'manga_'+i">
+            <div class="col-4 " v-for="(manga, i) in getTwelveItems(mangaGenreItem)" :key="'manga_'+i">
                 <transition name="genre-card" class="genre-card">
                     <genre-card class="genre-card" :item="manga"  v-if="isLoaded"/>
                 </transition>
             </div>
         </div>
-        <div class="row">
 
-        </div>
     </div>
 </template>
 
 <script>
     import mangaGenres from "../data/MangaGenres";
     import GenreCard from "../components/genre/GenreCard";
-    import NewsMixin from "../mixins/news-mixin"
+    import ItemMixin from "../mixins/item-mixin"
     import {mapGetters} from 'vuex'
 
     export default {
@@ -41,7 +44,7 @@
             GenreCard
         },
         mixins: [
-            NewsMixin
+            ItemMixin
         ],
         data() {
             return {
@@ -51,6 +54,7 @@
         computed: {
             ...mapGetters('genre', {
                 mangaGenreItem: 'mangaGenreItem',
+                mangaGenreInfo: 'mangaGenreInfo',
                 isLoaded: 'isLoaded'
             }),
         },
@@ -58,6 +62,7 @@
             getGenreItem(id) {
                 this.$store.dispatch('genre/isLoadedToFalse');
                 this.$store.dispatch('genre/getMangaGenreItem', id);
+                this.$store.dispatch('genre/getMangaGenreInfo', id);
             }
         }
     }

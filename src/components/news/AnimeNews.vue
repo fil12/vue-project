@@ -10,14 +10,14 @@
 <script>
     import {mapGetters} from 'vuex'
     import NewsCard from "./NewsCard";
-    import newsMixin from '../../mixins/news-mixin'
+    import ItemMixin from '../../mixins/item-mixin'
 
     export default {
         name: "AnimeNews",
         components: {
             NewsCard
         },
-        mixins: [newsMixin],
+        mixins: [ItemMixin],
         created() {
             this.$store.dispatch('newsStore/getAnimeNews');
         },
