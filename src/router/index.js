@@ -35,6 +35,20 @@ const routes = [
         }
     },
     {
+        path: '/news-item/:id',
+        name: 'news-item',
+        component() {
+            return import('@/views/NewsItem.vue')
+        }
+    },
+    {
+        path: '/top-item/:id',
+        name: 'top-item',
+        component() {
+            return import('@/views/TopItem.vue')
+        }
+    },
+    {
         path: '/manga',
         name: 'manga',
         components: {

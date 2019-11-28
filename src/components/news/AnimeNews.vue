@@ -1,7 +1,7 @@
 <template>
     <div class="row">
-        <div class="item" v-for="(newsItem,i) in getThreeItems(animeNews)" :key="'animeNews_'+i">
-            <news-card :news-item="newsItem" :id="i"/>
+        <div class="item" v-for="(articles,i) in getThreeItems(animeNews)" :key="'animeNews_'+i">
+            <news-card :item="articles" :id="i"/>
         </div>
     </div>
 

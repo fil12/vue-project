@@ -2,32 +2,32 @@
     <div class="row text-center">
         <div class="col-5 text-center">
             <router-link :to="{
-               name: 'item',
+               name: 'top-item',
                params: {
                    id: id,
-                   title: topItem.title.replace(' ', '_')
+                   item: item
                },
             }">
-                <img :src="topItem.image_url" alt="" class="img-thumbnail"/>
+                <img :src="item.image_url" alt="" class="img-thumbnail"/>
             </router-link>
         </div>
         <div class="col-5">
             <ul class="text-sm-left">
                 <router-link :to="{
-                   name: 'item',
+                   name: 'top-item',
                    params: {
                        id: id,
-                       title: topItem.title.replace(' ', '_')
+                   item: item
                    },
                 }">
-                    title: {{topItem.title}}
+                    title: {{item.title}}
                 </router-link>
-                <li>author_name: {{topItem.author_name}}</li>
-                <li>author_url: {{topItem.author_url}}</li>
-                <li>comments: {{topItem.comments}}</li>
-                <li>forum_url: {{topItem.forum_url}}</li>
-                <li>intro: {{topItem.intro}}</li>
-                <li>url: {{topItem.url}}</li>
+                <li>author_name: {{item.author_name}}</li>
+                <li>author_url: {{item.author_url}}</li>
+                <li>comments: {{item.comments}}</li>
+                <li>forum_url: {{item.forum_url}}</li>
+                <li>intro: {{item.intro}}</li>
+                <li>url: {{item.url}}</li>
             </ul>
         </div>
     </div>
@@ -37,7 +37,7 @@
     export default {
         name: "TopCard",
         props: {
-            topItem: {
+            item: {
                 type: Object,
                 required: true
             },

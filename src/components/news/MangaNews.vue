@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="item" v-for="(newsItem,i) in getThreeItems(mangaNews)" :key="'mangaNews_$'+i">
-            <news-card :news-item="newsItem" :id="i"/>
+            <news-card :item="newsItem" :id="i"/>
         </div>
     </div>
 </template>

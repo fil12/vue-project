@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="item" v-for="(topItem,i) in getThreeItems(animeTop)" :key="'animeTop_'+i">
-            <top-card :top-item="topItem" :id="i"/>
+            <top-card :item="topItem" :id="i"/>
         </div>
     </div>
 </template>
