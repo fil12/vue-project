@@ -4,6 +4,7 @@ import newsStore from './newsStore'
 import topStore from './topStore'
 import listStore from './listStore'
 import genre from "./genre";
+import search from "./search"
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -11,6 +12,7 @@ export default new Vuex.Store({
         newsStore,
         topStore,
         listStore,
-        genre
+        genre,
+        search
     }
 })

@@ -9,14 +9,14 @@
 <script>
     import {mapGetters} from 'vuex'
     import TopCard from "./TopCard";
-    import newsMixin from '../../mixins/news-mixin'
+    import ItemMixin from '../../mixins/item-mixin'
 
     export default {
         name: "AnimeTop",
         components: {
             TopCard
         },
-        mixins: [newsMixin],
+        mixins: [ItemMixin],
         created() {
             this.$store.dispatch('topStore/getAnimeTop');
         },

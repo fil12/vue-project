@@ -16,7 +16,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 genre-card" v-for="(anime, i) in getTenItems(animeGenreItem)" :key="'anime_'+i">
+            <div class="col-4 genre-card" v-for="(anime, i) in getTwelveItems(animeGenreItem)" :key="'anime_'+i">
                 <transition name="genre-card" class="genre-card">
                     <genre-card :item="anime" v-if="isLoaded"/>
                 </transition>
@@ -31,7 +31,7 @@
 <script>
     import animeGenres from "../data/animeGenres";
     import GenreCard from "../components/genre/GenreCard";
-    import NewsMixin from "../mixins/news-mixin"
+    import ItemMixin from "../mixins/item-mixin"
     import {mapGetters} from 'vuex'
 
     export default {
@@ -40,7 +40,7 @@
             GenreCard
         },
         mixins: [
-            NewsMixin
+            ItemMixin
         ],
         data() {
             return {

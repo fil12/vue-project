@@ -5,6 +5,8 @@ export default {
     state: {
         animeGenreItem: null,
         mangaGenreItem: null,
+        animeGenreInfo: null,
+        mangaGenreInfo: null,
         isLoaded: false
     },
     mutations: {
@@ -14,6 +16,13 @@ export default {
 
         setMangaGenreItem(state, data) {
             state.mangaGenreItem = data
+        },
+        setAnimeGenreInfo(state, data) {
+            state.animeGenreInfo = data
+        },
+
+        setMangaGenreInfo(state, data) {
+            state.mangaGenreInfo = data
         },
         setIsLoaded(state, flag) {
             state.isLoaded = flag
@@ -25,6 +34,12 @@ export default {
         },
         mangaGenreItem: (state) => {
             return state.mangaGenreItem;
+        },
+        animeGenreInfo: (state) => {
+            return state.animeGenreInfo;
+        },
+        mangaGenreInfo: (state) => {
+            return state.mangaGenreInfo;
         },
         isLoaded: (state) => {
             return state.isLoaded;
@@ -39,6 +54,7 @@ export default {
                     commit('setIsLoaded', true);
                 })
         },
+
         getMangaGenreItem({commit}, id) {
             axios.get("https://api.jikan.moe/v3/genre/manga/"+id+"/1")
                 .then(function (response) {
@@ -47,6 +63,24 @@ export default {
                     commit('setIsLoaded', true);
                 })
         },
+
+        getAnimeGenreInfo({commit}, id) {
+            axios.get("https://api.jikan.moe/v3/genre/anime/"+id+"/1")
+                .then(function (response) {
+                    let resp = response.data.mal_url;
+                    commit('setAnimeGenreInfo', resp);
+                    commit('setIsLoaded', true);
+                })
+        },
+
+        getMangaGenreInfo({commit}, id) {
+                    axios.get("https://api.jikan.moe/v3/genre/manga/"+id+"/1")
+                        .then(function (response) {
+                            let resp = response.data.mal_url;
+                            commit('setMangaGenreInfo', resp);
+                            commit('setIsLoaded', true);
+                        })
+                },
 
         isLoadedToFalse({commit}) {
             commit('setIsLoaded', false);

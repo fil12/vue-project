@@ -12,7 +12,6 @@ const routes = [
         name: 'home',
         components: {
             default: Home,
-            addNav: import('@/views/Nav.vue')
         }
     },
     {
@@ -53,7 +52,6 @@ const routes = [
         name: 'manga',
         components: {
             default: Manga,
-            addNav: import('@/views/Nav.vue')
         },
         children: [{
             path: '/manga-genre/:id',

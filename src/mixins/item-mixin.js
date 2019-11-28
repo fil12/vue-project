@@ -5,9 +5,9 @@ export default {
             return array.slice(0, 3);
         },
 
-        getTenItems(array) {
+        getTwelveItems(array) {
             if (!Array.isArray(array)) return false;
-            return array.slice(0, 10);
+            return array.slice(0, 12);
         }
     }
 }
